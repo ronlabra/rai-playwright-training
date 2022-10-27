@@ -19,5 +19,15 @@ export class Login {
     }
     await expect(this.page.locator(`id=chakra-toast-manager-top`), 'Login successfully.').toBeVisible();
   }
+  
+  async walletLogin(){
+    await this.page.goto('https://qa-staging.aonewallet.com/login');
+    await this.page.getByPlaceholder(`Username`).fill(`transact`);
+    await this.page.getByPlaceholder(`Password`).fill(`password`);
+    await this.page.getByRole('button', {name:`login`}).click();
+    // await expect(this.page.getByText(`Successfully Authenticated`)).toBeVisible();
+
+
+  }
 
 }
